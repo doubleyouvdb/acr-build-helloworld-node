@@ -1,0 +1,14 @@
+﻿---
+applications:
+- name: sampleapp
+  random-route: true 
+  path: bin/Release/Publish
+  stack: windows
+  buildpacks:
+  - https://github.com/cloudfoundry-community/web-config-transform-buildpack/releases/download/v1.1.9/Web.Config.Transform.Buildpack-win-x64-1.1.9.zip
+  - hwc_buildpack
+  env:
+    ASPNETCORE_ENVIRONMENT: ((env))
+
+  services:
+  - my_configserver
